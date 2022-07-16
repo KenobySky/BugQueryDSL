@@ -20,7 +20,7 @@ public class UserController {
     @Autowired
     private UserRepository repository;
 
-    @RequestMapping(value = {"/sys-admin/credenciais/search"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/sys-admin/search"}, method = RequestMethod.GET)
     public ResponseEntity<Object> search() {
 
         String keyword = "user";
