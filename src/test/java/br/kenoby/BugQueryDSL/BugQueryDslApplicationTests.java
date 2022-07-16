@@ -6,9 +6,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
-@SpringBootTest
+@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @AutoConfigureWebTestClient
 class BugQueryDslApplicationTests {
 
@@ -17,7 +18,7 @@ class BugQueryDslApplicationTests {
     }
 
     @Test
-    void createUser(@Autowired UserRepository repository) {
+    void createUser(@Autowired UserRepository repository,@Autowired WebTestClient webClient) {
 
         User user = new User();
         user.setPassword("xaxa");
@@ -26,6 +27,11 @@ class BugQueryDslApplicationTests {
 
         repository.save(user);
 
+        webClient
+                .get().uri("/sys-admin/search")
+                .exchange()
+                .expectStatus().isOk();
+        
     }
 
     @Test
