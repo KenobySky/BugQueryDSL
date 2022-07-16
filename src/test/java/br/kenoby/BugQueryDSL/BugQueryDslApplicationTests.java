@@ -21,6 +21,7 @@ class BugQueryDslApplicationTests {
     void createUser(@Autowired UserRepository repository,@Autowired WebTestClient webClient) {
 
         User user = new User();
+        user.setId(1);
         user.setPassword("xaxa");
         user.setTunnel(null);
         user.setUsername("kenoby@sky");
