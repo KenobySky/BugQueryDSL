@@ -23,7 +23,7 @@ public class UserController {
     @RequestMapping(value = {"/sys-admin/search"}, method = RequestMethod.GET)
     public ResponseEntity<Object> search() {
 
-        String keyword = "user";
+        String keyword = "kenoby";
 
         QUser user = QUser.user;
 
