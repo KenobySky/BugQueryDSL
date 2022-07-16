@@ -23,13 +23,14 @@ public class UserController {
     @RequestMapping(value = {"/sys-admin/search"}, method = RequestMethod.GET)
     public ResponseEntity<Object> search() {
 
+        //Could be a request parameter
         String keyword = "kenoby";
 
         QUser user = QUser.user;
 
         BooleanExpression predicateKeywordSearch
                 = user.username.contains(keyword)
-                        .or(user.tunnel.nomeEmpresa.contains(keyword));
+                        .or(user.tunnel.nameCompany.contains(keyword));
 
         return new ResponseEntity<>(repository.findAll(predicateKeywordSearch), HttpStatus.OK);
 
