@@ -1,4 +1,4 @@
-package br.kenoby.main;
+package br.kenoby;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

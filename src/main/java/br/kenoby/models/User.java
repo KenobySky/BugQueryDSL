@@ -22,7 +22,6 @@ public class User  {
     @Column(name = "password", updatable = true, nullable = false)
     private String password;
 
-    @Fetch(value = FetchMode.SUBSELECT)
     @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, optional = true)
     @JoinColumn(name = "tunnel_id")
     private Tunnel tunnel;
