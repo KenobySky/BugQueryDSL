@@ -14,13 +14,13 @@ public class Tunnel {
     @Column(name = "id")
     private long id;
 
-    @Column(name = "nome_empresa", nullable = true)
-    private String nomeEmpresa;
+    @Column(name = "name_company", nullable = true)
+    private String nameCompany;
 
     @JsonIgnore
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "tunnel_id")
-    private List<User> usuarios = new ArrayList<>();
+    private List<User> users = new ArrayList<>();
 
     public Tunnel() {
 
@@ -35,20 +35,20 @@ public class Tunnel {
     }
 
 
-    public String getNomeEmpresa() {
-        return nomeEmpresa;
+    public String getNameCompany() {
+        return nameCompany;
     }
 
-    public void setNomeEmpresa(String nomeEmpresa) {
-        this.nomeEmpresa = nomeEmpresa;
+    public void setNameCompany(String nameCompany) {
+        this.nameCompany = nameCompany;
     }
 
-    public List<User> getUsuarios() {
-        return usuarios;
+    public List<User> getUsers() {
+        return users;
     }
 
-    public void setUsuarios(List<User> usuarios) {
-        this.usuarios = usuarios;
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 
 }
